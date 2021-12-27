@@ -4,7 +4,7 @@ from random import randint as rand
 import numpy as np
 import pandas as pd
 import time
-#test_1.2
+#version - 1.2
 
 
 '''recent update :
@@ -22,11 +22,6 @@ def log(text):
 
 
 #GUI GUI GUI __________________________________________________________
-
-#test #1.2 for micro concious computers
-
-#API verifications
-#api_requests = requests.get("www.google.com")
 
 
 #MAIN________________________________________________________________________
@@ -346,5 +341,3 @@ chat()
 #MAIN________________________________________________________________________
 
 #watchlist
-#check if keys are processed automatically from memory after loading
-#(trying to avoid saving keyword) :)
