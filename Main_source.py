@@ -1,5 +1,3 @@
-import json
-import requests
 from random import randint as rand
 import numpy as np
 import pandas as pd
@@ -25,6 +23,7 @@ def log(text):
 
 
 #MAIN________________________________________________________________________
+# defining greeting words
 
 greetings = ["hello", "good morning","Hi","what a wonderful day","Lovely day","love to be back","how are you?"]
 
@@ -32,11 +31,13 @@ top_common = '''the,at,there,some,my,',",.,/,<,>,?,\,{,},[,],(,),*,&,^,%,$,#,@,!
 common_words = top_common.split(",")
 keyword = ["i","you"]
 
-
+#main brain of the program
 memory = np.array(
         [["obj","what","why","when","how"],
         ["me",0,0,0,0],["you",0,0,0,0]]
 )
+
+#defining editing memory tools
 
 def create_mem(obj):
     new = np.array([[str(obj),0,0,0,0]])
@@ -92,6 +93,8 @@ def learn(text,mode=0):
     elif mode == 1:
         keyword.append(text)
 
+# mood of the word tracking - beta      
+      
 def mood(words):
     positive = ["wow","amazing","great","good","excellent","perfect","loved it","love","exceptional","superb"]
     negative = ['shit','no','hate','damn','wtf','wth','bad','worse','worst','fool','mad','nope']
@@ -219,46 +222,7 @@ def question():
                     learn(word,0)
                     chat()
         
-
-
-'''#SAVE=LOAD_V1 (will be removed in next update i.e v2.3)
-def save(word):
-    global memory
-    if word == "key":
-        data = open("data.dat3",'w')
-        data.write(str(keyword))
-        data.close()
-    elif word == "mem":
-        memory_ = open("mem.dat3",'w')
-        memory_.write(str(memory))
-        memory_.close()
-    
-    
-def load(word):
-    global memory
-    if word == "key":
-        data = open("data.dat3",'r')
-   
-        datum = data.read()
-        data.close()
-        
-        log("data loaded successfully")
-        return datum
-        
-    elif word == "mem":
-        memory_ = open("mem.dat3",'r')
-   
-        
-        memory = np.array(memory_.read())
-        memory_.close()
-        log("data loaded successfully")
-        memory.reshape(",5")
-        print(memory.shape)
-        
-'''
-
-
-#SAVE=LOAD_V2
+ # saving the memory       
 
 def save():
     global memory
